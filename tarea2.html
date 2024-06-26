@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tarea2</title>
+    <link rel="stylesheet" href="css/tarea2.css">
+    <script>
+        function mostrarPrecio() {
+            var pro = document.getElementById('productoSelect').value;
+            var pre;
+
+            // Definir los precios según el producto seleccionado
+            switch (producto) {
+                case '1':
+                    pre = 4.50;
+                    break;
+                case '2':
+                    pre = 6.20;
+                    break;
+                case '3':
+                    pre = 1.20;
+                    break;
+                case '4':
+                    pre = 12.50;
+                    break;
+                default:
+                    pre = 0; // Precio por defecto si no se selecciona ningún producto válido
+            }
+
+            // Mostrar el precio en el campo correspondiente
+            document.getElementById('precio').value = precio;
+        }
+
+        function calcular() {
+            // Obtener los valores de los campos
+            var cantidad = parseInt(document.getElementById('can').value);
+            var precio = parseFloat(document.getElementById('pre').value);
+            var descuento = parseInt(document.getElementById('des').value);
+
+            // Validar que la cantidad y el descuento sean mayores o iguales a 0
+            if (can <= 0) {
+                alert('La cantidad debe ser mayor a 0');
+                return;
+            }
+            if (des < 0) {
+                alert('El descuento no puede ser menor a 0');
+                return;
+            }
+
+            // Calcular el importe en soles y dólares
+            var imp1 = can* pre - (can * pre * des) / 100;
+            var imp2 = imp1 / 3.8;
+
+            // Mostrar el resultado en los campos correspondientes
+            document.getElementById('importeSoles').value = imp1.toFixed(2);
+            document.getElementById('importeDolares').value = imp2.toFixed(2);
+        }
+        
+        function limpiar(){
+            document.getElementById("pre").value="";
+            document.getElementById("can").value="";
+            document.getElementById("des").value="";
+            document.getElementById("imp1").value="";
+            document.getElementById("imp2").value="";
+        }
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td><img src="img/caja.jpg" alt=""></td>
+        </tr>
+    </table>
+    <table class="tablita">
+        <tr>
+            <td>Boleta de venta</td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td>producto</td>
+            <td>
+                <select style="font-size: 30px;" name="" id="pro">
+                    <option value="1">arroz costeño 3/4</option>
+                    <option value="2">azucar paisana 1k</option>
+                    <option value="3">chocolate donofrio</option>
+                    <option value="4">aceite primor primiun</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>precio</td>
+            <td><input   style="font-size: 20px;" type="text" id="pre" disabled></td>
+        </tr>
+        <tr>
+            <td>cantidad</td>
+            <td><input  style="font-size: 20px;" type="text" id="can"></td>
+        </tr>
+        <tr>
+            <td>descuento %</td>
+            <td><input  style="font-size: 20px;" type="text" id="des"></td>
+        </tr>
+        <tr>
+            <td>importe S/</td>
+            <td><input  style="font-size: 20px;" type="text" id="imp1" disabled></td>
+        </tr>
+        <tr>
+            <td>importe US</td>
+            <td><input  style="font-size: 20px;" type="text" id="imp2" disabled></td>
+        </tr>
+        <tr>
+            <td>
+                <button onclick="calcular();">calcular</button>
+            </td>
+            <td>
+                <button onclick="limpiar();">limpiar</button>
+            </td>
+        </tr>
+    </table>
+    
+</body>
+</html>

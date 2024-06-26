@@ -1,0 +1,16 @@
+table{
+    margin: 0 auto;
+    text-align: center;
+    font-size: 50px;
+
+}
+button{
+    font-size: 30px;
+}
+.tablita{
+    text-align: center;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: 80px;
+    border: 8px solid;
+    background-color: beige;
+}

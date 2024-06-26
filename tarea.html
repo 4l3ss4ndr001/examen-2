@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ejercicio1</title>
+    <link rel="stylesheet" href="css/tarea1.css">
+    <script>
+        function calcular(){
+            let x = parseInt(document.getElementById("txtnum").value);
+            if(x==0){
+                document.getElementById("txtres").value="es 0"; 
+            }else if(x>0){
+                document.getElementById("txtres").value="es positivo"; 
+            }else if(x<0){
+                document.getElementById("txtres").value="es negativo"; 
+            }
+
+        }
+        function limpiar(){
+            document.getElementById("txtnum").value="";
+            document.getElementById("txtres").value="";
+        }
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>
+                <img src="img/caja.jpg" alt="">
+            </td>
+        </tr>
+    </table>
+    <table class="tablita">
+        <tr>
+            <td>
+                evaluar numero
+            </td>
+    </tr>
+    </table>
+    <table>
+        <tr>
+            <td>numero</td>
+            <td><input style="font-size: 20px;" type="number" id="txtnum"></td>
+        </tr>
+        <tr>
+            <td>resultado</td>
+            <td><input style="font-size: 20px;" type="text" id="txtres"></td>
+        </tr>
+        <tr>
+            <td>
+                <button onclick="calcular();">calcular</button>
+            </td>
+            <td>
+                <button onclick="limpiar();">limpiar</button>
+            </td>
+        </tr>
+    </table>
+    
+</body>
+</html> 
